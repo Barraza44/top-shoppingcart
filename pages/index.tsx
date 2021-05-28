@@ -22,7 +22,7 @@ export default function Home() {
           alt="image of a big fern"
           layout="fill"
           objectFit="cover"
-          quality={75}
+          quality={69}
           priority={true}
         />
       </div>
