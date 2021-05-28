@@ -9,4 +9,28 @@
 
 .content {
     padding: 0 77px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.heroText {
+    font-family: var(--font-set2);
+    font-weight: bold;
+    font-size: 4.375rem;
+    color: hsl(0, 0%, 100%);
+    margin-top: 0;
+    align-self: center;
+}
+
+.button {
+    background: #70C24E;
+    border-radius: 15px;
+    width: 260px;
+    height: 70px;
+    border: none;
+    align-self: center;
+    color: #ffffff;
 }

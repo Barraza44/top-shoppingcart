@@ -30,7 +30,7 @@
 
 .listItem {
     font-family: var(--font-set1);
-    font-size: 36px;
+    font-size: 30px;
     color: hsl(0, 0%, 100%);
     margin: 0;
 }

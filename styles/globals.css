@@ -13,5 +13,5 @@ a {
 * {
   box-sizing: border-box;
   --font-set1: din-2014-narrow, Bahnschrift, sans-serif;
-  --font-set2: Merriweather, serif;
+  --font-set2: 'Merriweather', serif;
 }

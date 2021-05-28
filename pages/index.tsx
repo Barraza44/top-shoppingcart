@@ -26,7 +26,8 @@ export default function Home() {
       </div>
       <Header />
       <main className={styles.content}>
-        <h1>The plant you were looking for</h1>
+        <h1 className={styles.heroText}>The plant you were looking for</h1>
+        <button className={styles.button}>Shop Now</button>
       </main>
     </div>
   )
