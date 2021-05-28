@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.dock {
+    font-family: var(--font-set1);
+    font-weight: bold;
+    font-size: 48px;
+    margin: 0;
+    color: hsl(0, 0%, 100%);
+    vertical-align: center;
+}
+
+.header {
+    padding: 33px 77px 0 77px;
+    height: 100px;
+    justify-content: space-between;
+}
+
+.list, .header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+}
+
+.list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    gap: 3.125rem;
+}
+
+.listItem {
+    font-family: var(--font-set1);
+    font-size: 36px;
+    color: hsl(0, 0%, 100%);
+    margin: 0;
+}

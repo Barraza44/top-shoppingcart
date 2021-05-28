@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from "next/image";
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
+import Header from "../components/Header";
 
 export default function Home() {
   return (
@@ -20,8 +21,10 @@ export default function Home() {
           layout="fill"
           objectFit="cover"
           quality={75}
+          priority={true}
         />
       </div>
+      <Header />
       <main className={styles.content}>
 
       </main>
