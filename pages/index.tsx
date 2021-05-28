@@ -26,7 +26,7 @@ export default function Home() {
       </div>
       <Header />
       <main className={styles.content}>
-
+        <h1>The plant you were looking for</h1>
       </main>
     </div>
   )
