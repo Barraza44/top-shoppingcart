@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import Image from "next/image";
+import Link from "next/link";
 import styles from '../styles/Home.module.css';
 import Header from "../components/Header";
+import { motion} from "framer-motion";
 
 export default function Home() {
   return (
@@ -27,7 +29,13 @@ export default function Home() {
       <Header />
       <main className={styles.content}>
         <h1 className={styles.heroText}>The plant you were looking for</h1>
-        <button className={styles.button}>Shop Now</button>
+        <motion.button
+          className={styles.button}
+          whileHover={{scale: 1.2, backgroundColor: "#343f45"}}
+          whileTap={{scale: 0.8}}
+        >
+          <Link href="/Shop">Shop Now</Link>
+        </motion.button>
       </main>
     </div>
   )

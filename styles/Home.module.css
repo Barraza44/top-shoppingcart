@@ -33,4 +33,11 @@
     border: none;
     align-self: center;
     color: #ffffff;
+    font-family: var(--font-set1);
+    font-size: 2rem;
+}
+
+.button a {
+    display: inline-block;
+    width: 100%;
 }
