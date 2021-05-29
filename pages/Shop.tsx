@@ -1,7 +1,11 @@
 import React from "react";
+import Header from "../components/Header";
 
 export default function Shop() {
   return(
-    <h2>Hello there</h2>
+    <main>
+      <Header />
+      <h2>Hello there</h2>
+    </main>
   )
 }
