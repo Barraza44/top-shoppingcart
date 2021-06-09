@@ -17,6 +17,14 @@ export default function Shop() {
     <Header headerStyle={"header2"} BoxColor={"Black"} />
     <main className={styles.page}>
       <h2 className={styles.title}>Shop</h2>
+      <div className={styles.content}>
+        <aside>
+          <p>A list</p>
+        </aside>
+        <div className={styles.products}>
+          <p>Product</p>
+        </div>
+      </div>
     </main>
     </>
   )
