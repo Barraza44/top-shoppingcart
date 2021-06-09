@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.page {
+    padding: 0 76px;
+}
+
+
+.title {
+    font-family: var(--font-set2);
+    font-size: 4rem;
+}

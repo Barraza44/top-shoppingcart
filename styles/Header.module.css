@@ -5,17 +5,24 @@
     font-weight: bold;
     font-size: 48px;
     margin: 0;
-    color: hsl(0, 0%, 100%);
     vertical-align: center;
 }
 
-.header {
+.header, .header2 {
     padding: 33px 77px 0 77px;
     height: 100px;
     justify-content: space-between;
 }
 
-.list, .header {
+.header2 {
+    color: #000000;
+}
+
+.header {
+    color: hsl(0, 0%, 100%);
+}
+
+.list, .header, .header2 {
     display: flex;
     flex-flow: row nowrap;
     align-content: center;
@@ -31,6 +38,5 @@
 .listItem {
     font-family: var(--font-set1);
     font-size: 30px;
-    color: hsl(0, 0%, 100%);
     margin: 0;
 }
