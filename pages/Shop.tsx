@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Header from "../components/Header";
 import styles from "../styles/Shop.module.css"
+import plantData from "../plantData.json";
 
 export default function Shop() {
   return(
@@ -28,4 +29,10 @@ export default function Shop() {
     </main>
     </>
   )
+}
+
+export function getStaticProps() {
+  return {
+    props: plantData
+  }
 }
