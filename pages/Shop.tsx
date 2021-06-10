@@ -5,7 +5,7 @@ import styles from "../styles/Shop.module.css"
 import plantData from "../plantData.json";
 import PlantCard from "../components/PlantCard";
 
-export default function Shop({PlantData}) {
+export default function Shop({plantData}) {
   return (
     <>
       <Head>
@@ -26,7 +26,7 @@ export default function Shop({PlantData}) {
             <p>A list</p>
           </aside>
           <div className={styles.products}>
-            {PlantData.map(plant => (
+            {plantData.map(plant => (
               <PlantCard
                 key={plant.id}
                 src={plant.src}
@@ -43,6 +43,8 @@ export default function Shop({PlantData}) {
 
 export function getStaticProps() {
   return {
-    props: { plantData }
+    props: {
+      plantData
+    },
   }
 }
