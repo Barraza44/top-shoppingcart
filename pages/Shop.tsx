@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import styles from "../styles/Shop.module.css"
 import plantData from "../plantData.json";
 import PlantCard from "../components/PlantCard";
+import CategoryList from "../components/CategoryList";
 
 export default function Shop({plantData}) {
   return (
@@ -22,9 +23,7 @@ export default function Shop({plantData}) {
       <main className={styles.page}>
         <h2 className={styles.title}>Shop</h2>
         <div className={styles.content}>
-          <aside>
-            <p>A list</p>
-          </aside>
+          <CategoryList />
           <div className={styles.products}>
             {plantData.map(plant => (
               <PlantCard

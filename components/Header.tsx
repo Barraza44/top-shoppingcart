@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Header({headerStyle, BoxColor}) {
   return(
     <header className={headerStyle === "header1" ? styles.header : styles.header2}>
-      <h1 className={styles.dock}>The Dock</h1>
+      <h1 className={styles.dock}><Link href="/">The Dock</Link></h1>
       <ul className={styles.list}>
         <li className={styles.listItem}><Link href="/Shop">Shop</Link></li>
         <li className={styles.listItem}>About</li>
