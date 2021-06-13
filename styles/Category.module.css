@@ -5,3 +5,12 @@
     font-size: 2.5rem;
     margin: 0;
 }
+
+.list {
+    font-family: var(--font-set1);
+    font-size: 1.75rem;
+}
+
+.listItem {
+    margin: 10px 0;
+}

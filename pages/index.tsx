@@ -34,7 +34,7 @@ export default function Home() {
           whileHover={{scale: 1.2, backgroundColor: "#343f45"}}
           whileTap={{scale: 0.8}}
         >
-          <Link href="/Shop">Shop Now</Link>
+          <Link href="/Shop">Index Now</Link>
         </motion.button>
       </main>
     </div>

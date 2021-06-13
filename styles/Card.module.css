@@ -22,8 +22,8 @@
 
 .price {
     grid-column: 2/3;
-    text-align: end;
     margin-right: 0.6rem;
+    text-align: center;
 }
 
 .images {
