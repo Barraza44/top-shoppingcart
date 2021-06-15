@@ -20,6 +20,25 @@
 
 .listItem {
     margin: 10px 0;
+    position: relative;
+}
+
+.listItem::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 0.1em;
+    background-color: var(--color-1);
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+}
+
+.listItem:hover::after,
+.listItem:focus::after {
+    opacity: 1;
+    transform: translate3d(0, 0.2em, 0);
 }
 
 @media screen and (min-width: 1024px) {

@@ -14,4 +14,6 @@ a {
   box-sizing: border-box;
   --font-set1: din-2014-narrow, Bahnschrift, sans-serif;
   --font-set2: 'Merriweather', serif;
+  --color-1: hsl(102, 49%, 53%);
+  --color-2: hsl(201, 14%, 24%);
 }
