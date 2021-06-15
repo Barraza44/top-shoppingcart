@@ -8,9 +8,9 @@ export default function PlantCard({src, name, price}) {
       <div className={styles.images}>
         <Image
           src={src}
-          width={298}
-          height={295}
+          layout={"fill"}
           objectFit={"cover"}
+          sizes={"(max-width: 768px) 221px, 298px"}
         />
       </div>
       <p className={styles.name}>{name}</p>
