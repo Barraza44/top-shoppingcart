@@ -46,6 +46,11 @@
     font-family: var(--font-set1);
     font-size: 22px ;
     margin: 0;
+    transition: color 200ms cubic-bezier(.46,.03,.52,.96);
+}
+
+.listItem :hover {
+    color: var(--color-1);
 }
 
 @media screen and (min-width: 1024px) {
@@ -70,5 +75,6 @@
 
     .listItem {
         font-size: 30px;
+        transition: color 200ms cubic-bezier(.46,.03,.52,.96);
     }
 }

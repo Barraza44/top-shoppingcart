@@ -31,6 +31,7 @@ export default function Index({plantData}) {
                 src={plant.src}
                 name={plant.name}
                 price={plant.price}
+                id={plant.id}
               />
             ))}
           </div>
