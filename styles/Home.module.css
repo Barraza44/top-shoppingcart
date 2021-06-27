@@ -8,7 +8,7 @@
 }
 
 .content {
-    padding: 0 77px;
+    padding: 0 22px;
     display: flex;
     flex-flow: column nowrap;
     align-content: center;
@@ -19,25 +19,44 @@
 .heroText {
     font-family: var(--font-set2);
     font-weight: bold;
-    font-size: 4.375rem;
+    font-size: 2.5rem;
     color: hsl(0, 0%, 100%);
     margin-top: 0;
     align-self: center;
+    text-align: center;
 }
 
 .button {
     background: #70C24E;
-    border-radius: 15px;
-    width: 260px;
-    height: 70px;
+    border-radius: 10px;
+    width: 220px;
+    height: 60px;
     border: none;
     align-self: center;
     color: #ffffff;
     font-family: var(--font-set1);
-    font-size: 2rem;
+    font-size: 1.4rem;
 }
 
 .button a {
     display: inline-block;
     width: 100%;
+}
+
+@media screen and (min-width: 768px){
+    .content {
+        padding: 0 77px;
+    }
+
+    .heroText {
+        font-size: 4.375rem;
+        text-align: left;
+    }
+
+    .button {
+        border-radius: 15px;
+        width: 260px;
+        height: 70px;
+        font-size: 2rem;
+    }
 }

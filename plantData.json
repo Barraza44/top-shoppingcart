@@ -3,18 +3,21 @@
     "id": 1,
     "name": "Three plant set",
     "price": 8.99,
-    "src": "/images/pexels-ylanite-koppens-776656.jpg"
+    "src": "/images/pexels-ylanite-koppens-776656.jpg",
+    "potColor": "#E2ECF2"
   },
   {
     "id": 2,
     "name": "Large fern pot",
     "price": 10.99,
-    "src": "/images/pexels-monstera-6373479.jpg"
+    "src": "/images/pexels-monstera-6373479.jpg",
+    "potColor": "#E2ECF2"
   },
   {
     "id": 3,
     "name": "Three succulent colored plant set",
     "price": 11.99,
-    "src": "/images/pexels-scott-webb-311458.jpg"
+    "src": "/images/pexels-scott-webb-311458.jpg",
+    "potColor": "#E2ECF2"
   }
 ]
