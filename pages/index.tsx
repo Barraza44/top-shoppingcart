@@ -18,7 +18,7 @@ export default function Home() {
 
       <div className={styles.wrap}>
         <Image
-          src="/images/pexels-daniel-frese-1055379.jpg"
+          src="/images/fern.jpg"
           alt="image of a big fern"
           layout="fill"
           objectFit="cover"

@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+.page {
+    padding: 0 22px;
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: 20px;
+}
+
+.titleGroup {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.title {
+    font-family: var(--font-set2);
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.price, .pot {
+    font-family: var(--font-set1);
+    font-weight: 500;
+    font-size: 1.375rem;
+    margin: 0;
+}
+
+.price {
+    align-self: center;
+}
+
+.description {
+    font-family: var(--font-set1);
+    font-size: 1.125rem;
+    font-weight: lighter;
+}
+
+
+.potColor {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+}
+
+.cartBtn {
+    margin-top: 30px;
+    width: 100%;
+    height: clamp(20px, 60px, 80px);
+    color: #ffffff;
+    font-family: var(--font-set1);
+    font-size: 1.375rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1024px) {
+    .page {
+        padding: 0 76px;
+        display: grid;
+        margin-top: 50px;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 70px;
+    }
+
+    .titleGroup {
+        margin: 0;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .price {
+        font-size: 2.25rem;
+    }
+
+    .description, .pot {
+        font-size: 1.5rem;
+    }
+
+    .potColor {
+        width: 68px;
+        height: 68px;
+    }
+}
