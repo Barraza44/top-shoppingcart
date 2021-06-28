@@ -27,6 +27,7 @@ export default function Product({id, name, price, description, src, potColor}) {
           width={333}
           height={230}
           layout="responsive"
+          quality={70}
         />
         <section>
           <div className={styles.titleGroup}>
