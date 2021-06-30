@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.badge {
+    background-color: var(--color-2);
+    color: #ffffff;
+    border-radius: 100%;
+    margin: 0;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(22px, -18px);
+}

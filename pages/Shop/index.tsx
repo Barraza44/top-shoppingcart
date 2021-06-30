@@ -1,12 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import Head from "next/head";
 import Header from "../../components/Header";
 import styles from "../../styles/Shop.module.css"
 import plantData from "../../plantData.json";
 import PlantCard from "../../components/PlantCard";
 import CategoryList from "../../components/CategoryList";
+import Cart from "../../components/Cart";
 
 export default function Index({plantData}) {
+  const [display, setDisplay] = useState(false);
+  const toggleDisplay = () => setDisplay(!display)
   return (
     <>
       <Head>
@@ -19,8 +22,9 @@ export default function Index({plantData}) {
         <link rel="stylesheet" href="https://use.typekit.net/luh8isz.css"/>
       </Head>
 
-      <Header headerStyle={"header2"} BoxColor={"Black"}/>
+      <Header headerStyle={"header2"} BoxColor={"Black"} toggleDisplay={toggleDisplay}/>
       <main className={styles.page}>
+        {display && <Cart />}
         <h2 className={styles.title}>Shop</h2>
         <div className={styles.content}>
           <CategoryList />

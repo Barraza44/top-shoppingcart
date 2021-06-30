@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import plantData from "../../../plantData.json";
 import Head from "next/head";
 import Image from "next/image";
@@ -6,8 +6,11 @@ import Header from "../../../components/Header";
 import { motion } from "framer-motion";
 import { GetServerSideProps } from "next";
 import styles from "../../../styles/Product.module.css"
+import Cart from "../../../components/Cart";
 
 export default function Product({id, name, price, description, src, potColor}) {
+  const [display, setDisplay] = useState(false);
+  const toggleDisplay = () => setDisplay(!display)
   return(
     <>
       <Head>
@@ -20,8 +23,9 @@ export default function Product({id, name, price, description, src, potColor}) {
         <link rel="stylesheet" href="https://use.typekit.net/luh8isz.css"/>
       </Head>
 
-      <Header headerStyle="header2" BoxColor="Black" />
+      <Header headerStyle="header2" BoxColor="Black" toggleDisplay={toggleDisplay} />
       <main className={styles.page}>
+        {display && <Cart />}
         <Image
           src={src}
           width={333}
