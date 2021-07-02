@@ -1,19 +1,28 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Image from "next/image";
+import styles from "../styles/Cart.module.css";
+import { motion } from "framer-motion";
+import useLocalStorage from "../useLocalStorage";
 
+export default function Cart({toggleDisplay}) {
+  const [items, setItems] = useLocalStorage<Array<string>>("items", []);
+  useEffect(() => {
+    setItems(items);
+  })
 
-export default function Cart() {
   return(
-    <div>
-      <div>
-        <h2>Cart</h2>
-        <Image 
+    <motion.div className={styles.cart}>
+      <div className={styles.titleContainer}>
+        <h2 className={styles.cartTitle}>Cart</h2>
+        <div onClick={toggleDisplay} className={styles.cross}>
+          <Image
           src="/close.svg"
-          width={24}
-          height={24}
-          layout="responsive"
+          width={44}
+          height={44}
+          layout="intrinsic"
         />
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -17,3 +17,15 @@ a {
   --color-1: hsl(102, 49%, 53%);
   --color-2: hsl(201, 14%, 24%);
 }
+
+.cartContainer {
+    display: flex;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0, 0.5);
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    z-index: 2;
+    inset: 0;
+}

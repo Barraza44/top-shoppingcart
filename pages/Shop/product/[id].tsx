@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import plantData from "../../../plantData.json";
 import Head from "next/head";
 import Image from "next/image";
@@ -7,10 +7,25 @@ import { motion } from "framer-motion";
 import { GetServerSideProps } from "next";
 import styles from "../../../styles/Product.module.css"
 import Cart from "../../../components/Cart";
+import useLocalStorage from "../../../useLocalStorage";
 
-export default function Product({id, name, price, description, src, potColor}) {
+export default function Product(props) {
   const [display, setDisplay] = useState(false);
-  const toggleDisplay = () => setDisplay(!display)
+  const toggleDisplay = () => setDisplay(!display);
+  let [items, setItems] = useLocalStorage<Array<string>>("items", []);
+
+  useEffect(() => {
+    // @ts-ignore
+    setItems(items);
+  }, [])
+
+  const addItemToBag = () => {
+    if(items.indexOf(props) === -1) {
+      setItems([...items, props])
+    }
+    setDisplay(true);
+  }
+
   return(
     <>
       <Head>
@@ -23,11 +38,20 @@ export default function Product({id, name, price, description, src, potColor}) {
         <link rel="stylesheet" href="https://use.typekit.net/luh8isz.css"/>
       </Head>
 
-      <Header headerStyle="header2" BoxColor="Black" toggleDisplay={toggleDisplay} />
+      <Header
+        headerStyle={"header2"}
+        BoxColor={"Black"}
+        toggleDisplay={toggleDisplay}
+        items={items}
+      />
+
       <main className={styles.page}>
-        {display && <Cart />}
+        {display &&
+          <div className="cartContainer">
+            <Cart toggleDisplay={toggleDisplay}/>
+          </div>}
         <Image
-          src={src}
+          src={props.src}
           width={333}
           height={230}
           layout="responsive"
@@ -35,16 +59,16 @@ export default function Product({id, name, price, description, src, potColor}) {
         />
         <section>
           <div className={styles.titleGroup}>
-            <h2 className={styles.title}>{name}</h2>
-            <p className={styles.price}>${price}</p>
+            <h2 className={styles.title}>{props.name}</h2>
+            <p className={styles.price}>${props.price}</p>
           </div>
-          <p className={styles.description}>{description}</p>
+          <p className={styles.description}>{props.description}</p>
           <div>
             <p className={styles.pot}>Pot Color</p>
             <motion.div
               className={styles.potColor}
               initial={{
-                backgroundColor: potColor
+                backgroundColor: props.potColor
               }}
             />
           </div>
@@ -59,6 +83,7 @@ export default function Product({id, name, price, description, src, potColor}) {
             transition={{
               ease: "easeInOut"
             }}
+            onClick={addItemToBag}
           >
             Add to cart
           </motion.button>

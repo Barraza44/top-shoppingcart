@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.bagContainer {
+    cursor: pointer;
+}
+
 .badge {
     background-color: var(--color-2);
     color: #ffffff;

@@ -4,8 +4,19 @@ import Link from "next/link";
 import styles from '../styles/Home.module.css';
 import Header from "../components/Header";
 import { motion } from "framer-motion";
+import {useEffect, useState} from "react";
+import Cart from "../components/Cart";
+import useLocalStorage from "../useLocalStorage";
 
 export default function Home() {
+  const [display, setDisplay] = useState(false);
+  const toggleDisplay = () => setDisplay(!display);
+  const [items, setItems] = useLocalStorage<Array<string>>("items", [])
+
+  useEffect(() => {
+    setItems(items);
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -26,8 +37,19 @@ export default function Home() {
           priority={true}
         />
       </div>
-      <Header headerStyle={"header1"} BoxColor={"White"} />
+
+      <Header
+        headerStyle={"header1"}
+        BoxColor={"White"}
+        toggleDisplay={toggleDisplay}
+        items={items}
+      />
+
       <main className={styles.content}>
+        {display &&
+        <div className="cartContainer">
+          <Cart toggleDisplay={toggleDisplay}/>
+        </div>}
         <h1 className={styles.heroText}>The plant you were looking for</h1>
         <motion.button
           className={styles.button}
