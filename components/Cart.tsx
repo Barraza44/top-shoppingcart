@@ -1,13 +1,26 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import Image from "next/image";
 import styles from "../styles/Cart.module.css";
 import { motion } from "framer-motion";
 import useLocalStorage from "../useLocalStorage";
+import Item from "./Item";
+import Plant from "../Plant";
 
 export default function Cart({toggleDisplay}) {
-  const [items, setItems] = useLocalStorage<Array<string>>("items", []);
+  const [items, setItems] = useLocalStorage<Array<Plant>>("items", []);
+  const [itemsArray, setItemsArray] = useState([])
+
   useEffect(() => {
     setItems(items);
+    setItemsArray(items);
+  }, []);
+
+  const pop = itemId => {
+    setItemsArray(itemsArray.filter(item => item.id !== itemId));
+  }
+
+  useEffect(() => {
+    return () => setItems(itemsArray);
   })
 
   return(
@@ -22,6 +35,19 @@ export default function Cart({toggleDisplay}) {
           layout="intrinsic"
         />
         </div>
+      </div>
+      <div>
+        {itemsArray.map(item => (
+          <Item
+            key={item.id}
+            id={item.id}
+            src={item.src}
+            name={item.name}
+            price={item.price}
+            description={item.description}
+            pop={pop}
+          />
+        ))}
       </div>
     </motion.div>
   );

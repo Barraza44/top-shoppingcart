@@ -3,8 +3,8 @@ import plantData from "../../../plantData.json";
 import Head from "next/head";
 import Image from "next/image";
 import Header from "../../../components/Header";
-import { motion } from "framer-motion";
-import { GetServerSideProps } from "next";
+import {motion} from "framer-motion";
+import {GetServerSideProps} from "next";
 import styles from "../../../styles/Product.module.css"
 import Cart from "../../../components/Cart";
 import useLocalStorage from "../../../useLocalStorage";
@@ -20,13 +20,15 @@ export default function Product(props) {
   }, [])
 
   const addItemToBag = () => {
-    if(items.indexOf(props) === -1) {
-      setItems([...items, props])
+    let currentItem = JSON.stringify(props);
+    let itemsString = JSON.stringify(items);
+    if (!(itemsString.includes(currentItem))) {
+      setItems([...items, props]);
     }
     setDisplay(true);
   }
 
-  return(
+  return (
     <>
       <Head>
         <title>The Dock | Shop </title>
@@ -47,9 +49,9 @@ export default function Product(props) {
 
       <main className={styles.page}>
         {display &&
-          <div className="cartContainer">
-            <Cart toggleDisplay={toggleDisplay}/>
-          </div>}
+        <div className="cartContainer">
+          <Cart toggleDisplay={toggleDisplay}/>
+        </div>}
         <Image
           src={props.src}
           width={333}
