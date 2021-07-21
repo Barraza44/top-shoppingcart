@@ -12,20 +12,28 @@ import useLocalStorage from "../../../useLocalStorage";
 export default function Product(props) {
   const [display, setDisplay] = useState(false);
   const toggleDisplay = () => setDisplay(!display);
+
   let [items, setItems] = useLocalStorage<Array<string>>("items", []);
+  const [itemsArray, setItemsArray] = useState([])
 
   useEffect(() => {
     // @ts-ignore
     setItems(items);
+    setItemsArray(items);
+    return () => setItems(itemsArray);
   }, [])
 
   const addItemToBag = () => {
     let currentItem = JSON.stringify(props);
-    let itemsString = JSON.stringify(items);
+    let itemsString = JSON.stringify(itemsArray);
     if (!(itemsString.includes(currentItem))) {
-      setItems([...items, props]);
+      setItemsArray([...itemsArray, props]);
     }
     setDisplay(true);
+  }
+
+  const pop = itemId => {
+    setItemsArray(itemsArray.filter(item => item.id !== itemId));
   }
 
   return (
@@ -44,13 +52,18 @@ export default function Product(props) {
         headerStyle={"header2"}
         BoxColor={"Black"}
         toggleDisplay={toggleDisplay}
-        items={items}
+        items={itemsArray}
       />
 
       <main className={styles.page}>
         {display &&
         <div className="cartContainer">
-          <Cart toggleDisplay={toggleDisplay}/>
+          <Cart
+            toggleDisplay={toggleDisplay}
+            itemsArray={itemsArray}
+            setItemsArray={setItemsArray}
+            pop={pop}
+          />
         </div>}
         <Image
           src={props.src}

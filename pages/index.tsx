@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from '../styles/Home.module.css';
 import Header from "../components/Header";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {useEffect, useState} from "react";
 import Cart from "../components/Cart";
 import useLocalStorage from "../useLocalStorage";
@@ -11,11 +11,18 @@ import useLocalStorage from "../useLocalStorage";
 export default function Home() {
   const [display, setDisplay] = useState(false);
   const toggleDisplay = () => setDisplay(!display);
-  const [items, setItems] = useLocalStorage<Array<string>>("items", [])
+  const [items, setItems] = useLocalStorage<Array<string>>("items", []);
+  const [itemsArray, setItemsArray] = useState([]);
 
   useEffect(() => {
     setItems(items);
+    setItemsArray(items);
+    return () => setItems(itemsArray);
   }, []);
+
+  const pop = itemId => {
+    setItemsArray(itemsArray.filter(item => item.id !== itemId));
+  }
 
   return (
     <div className={styles.container}>
@@ -42,13 +49,18 @@ export default function Home() {
         headerStyle={"header1"}
         BoxColor={"White"}
         toggleDisplay={toggleDisplay}
-        items={items}
+        items={itemsArray}
       />
 
       <main className={styles.content}>
         {display &&
         <div className="cartContainer">
-          <Cart toggleDisplay={toggleDisplay}/>
+          <Cart
+            toggleDisplay={toggleDisplay}
+            itemsArray={itemsArray}
+            setItemsArray={setItemsArray}
+            pop={pop}
+          />
         </div>}
         <h1 className={styles.heroText}>The plant you were looking for</h1>
         <motion.button

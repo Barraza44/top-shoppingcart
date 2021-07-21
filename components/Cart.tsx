@@ -6,18 +6,12 @@ import useLocalStorage from "../useLocalStorage";
 import Item from "./Item";
 import Plant from "../Plant";
 
-export default function Cart({toggleDisplay}) {
+export default function Cart({toggleDisplay, itemsArray, setItemsArray, pop}) {
   const [items, setItems] = useLocalStorage<Array<Plant>>("items", []);
-  const [itemsArray, setItemsArray] = useState([])
 
   useEffect(() => {
     setItems(items);
-    setItemsArray(items);
   }, []);
-
-  const pop = itemId => {
-    setItemsArray(itemsArray.filter(item => item.id !== itemId));
-  }
 
   useEffect(() => {
     return () => setItems(itemsArray);

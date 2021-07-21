@@ -1,3 +1,5 @@
+// noinspection DuplicatedCode
+
 import React, {useEffect, useState} from "react";
 import Head from "next/head";
 import Header from "../../components/Header";
@@ -11,13 +13,20 @@ import useLocalStorage from "../../useLocalStorage";
 export default function Index({plantData}) {
   const [display, setDisplay] = useState(false);
   const toggleDisplay = () => setDisplay(!display);
-  let [items, setItems] = useLocalStorage<Array<string>>("items", [])
+
+  let [items, setItems] = useLocalStorage<Array<string>>("items", []);
+  const [itemsArray, setItemsArray] = useState([]);
 
   useEffect(() => {
+    // @ts-ignore
     setItems(items);
+    setItemsArray(items);
+    return () => setItems(itemsArray);
   }, [])
 
-
+  const pop = itemId => {
+    setItemsArray(itemsArray.filter(item => item.id !== itemId));
+  }
   return (
     <>
       <Head>
@@ -34,13 +43,18 @@ export default function Index({plantData}) {
         headerStyle={"header2"}
         BoxColor={"Black"}
         toggleDisplay={toggleDisplay}
-        items={items}
+        items={itemsArray}
       />
 
       <main className={styles.page}>
         {display &&
         <div className="cartContainer">
-          <Cart toggleDisplay={toggleDisplay}/>
+          <Cart
+            toggleDisplay={toggleDisplay}
+            itemsArray={itemsArray}
+            setItemsArray={setItemsArray}
+            pop={pop}
+          />
         </div>}
         <h2 className={styles.title}>Shop</h2>
         <div className={styles.content}>
