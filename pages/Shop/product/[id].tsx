@@ -3,7 +3,7 @@ import plantData from "../../../plantData.json";
 import Head from "next/head";
 import Image from "next/image";
 import Header from "../../../components/Header";
-import {motion} from "framer-motion";
+import {motion, AnimatePresence} from "framer-motion";
 import {GetServerSideProps} from "next";
 import styles from "../../../styles/Product.module.css"
 import Cart from "../../../components/Cart";
@@ -56,15 +56,16 @@ export default function Product(props) {
       />
 
       <main className={styles.page}>
-        {display &&
-        <div className="cartContainer">
+        <AnimatePresence>
+          {display &&
           <Cart
             toggleDisplay={toggleDisplay}
             itemsArray={itemsArray}
             setItemsArray={setItemsArray}
             pop={pop}
           />
-        </div>}
+          }
+        </AnimatePresence>
         <Image
           src={props.src}
           width={333}

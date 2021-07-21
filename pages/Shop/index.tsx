@@ -1,10 +1,9 @@
-// noinspection DuplicatedCode
-
 import React, {useEffect, useState} from "react";
 import Head from "next/head";
 import Header from "../../components/Header";
 import styles from "../../styles/Shop.module.css"
 import plantData from "../../plantData.json";
+import {AnimatePresence} from "framer-motion";
 import PlantCard from "../../components/PlantCard";
 import CategoryList from "../../components/CategoryList";
 import Cart from "../../components/Cart";
@@ -47,15 +46,16 @@ export default function Index({plantData}) {
       />
 
       <main className={styles.page}>
-        {display &&
-        <div className="cartContainer">
+        <AnimatePresence>
+          {display &&
           <Cart
             toggleDisplay={toggleDisplay}
             itemsArray={itemsArray}
             setItemsArray={setItemsArray}
             pop={pop}
           />
-        </div>}
+          }
+        </AnimatePresence>
         <h2 className={styles.title}>Shop</h2>
         <div className={styles.content}>
           <CategoryList />

@@ -18,31 +18,39 @@ export default function Cart({toggleDisplay, itemsArray, setItemsArray, pop}) {
   })
 
   return(
-    <motion.div className={styles.cart}>
-      <div className={styles.titleContainer}>
-        <h2 className={styles.cartTitle}>Cart</h2>
-        <div onClick={toggleDisplay} className={styles.cross}>
-          <Image
-          src="/close.svg"
-          width={44}
-          height={44}
-          layout="intrinsic"
-        />
+    <div className="cartContainer">
+      <motion.div
+        className={styles.cart}
+        initial={{translateX: 1000}}
+        animate={{translateX: 0}}
+        exit={{translateX: 1000}}
+        transition={{duration: 0.5, type: "spring"}}
+      >
+        <div className={styles.titleContainer}>
+          <h2 className={styles.cartTitle}>Cart</h2>
+          <div onClick={toggleDisplay} className={styles.cross}>
+            <Image
+              src="/close.svg"
+              width={44}
+              height={44}
+              layout="intrinsic"
+            />
+          </div>
         </div>
-      </div>
-      <div>
-        {itemsArray.map(item => (
-          <Item
-            key={item.id}
-            id={item.id}
-            src={item.src}
-            name={item.name}
-            price={item.price}
-            description={item.description}
-            pop={pop}
-          />
-        ))}
-      </div>
-    </motion.div>
+        <div>
+          {itemsArray.map(item => (
+            <Item
+              key={item.id}
+              id={item.id}
+              src={item.src}
+              name={item.name}
+              price={item.price}
+              description={item.description}
+              pop={pop}
+            />
+          ))}
+        </div>
+      </motion.div>
+    </div>
   );
 }

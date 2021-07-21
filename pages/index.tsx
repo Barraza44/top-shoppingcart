@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from '../styles/Home.module.css';
 import Header from "../components/Header";
-import { motion, AnimatePresence } from "framer-motion";
+import {motion, AnimatePresence} from "framer-motion";
 import {useEffect, useState} from "react";
 import Cart from "../components/Cart";
 import useLocalStorage from "../useLocalStorage";
@@ -28,10 +28,12 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>The Dock</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="https://use.typekit.net/luh8isz.css" />
+        <link rel="icon" href="/favicon.ico"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap"
+          rel="stylesheet"/>
+        <link rel="stylesheet" href="https://use.typekit.net/luh8isz.css"/>
       </Head>
 
       <div className={styles.wrap}>
@@ -53,15 +55,16 @@ export default function Home() {
       />
 
       <main className={styles.content}>
+        <AnimatePresence>
         {display &&
-        <div className="cartContainer">
-          <Cart
-            toggleDisplay={toggleDisplay}
-            itemsArray={itemsArray}
-            setItemsArray={setItemsArray}
-            pop={pop}
-          />
-        </div>}
+        <Cart
+          toggleDisplay={toggleDisplay}
+          itemsArray={itemsArray}
+          setItemsArray={setItemsArray}
+          pop={pop}
+        />
+        }
+        </AnimatePresence>
         <h1 className={styles.heroText}>The plant you were looking for</h1>
         <motion.button
           className={styles.button}
