@@ -17,14 +17,29 @@ export default function Cart({toggleDisplay, itemsArray, setItemsArray, pop}) {
     return () => setItems(itemsArray);
   })
 
+  const cartVariants = {
+    start: {
+      x: "100vw"
+    },
+    animation: {
+      x: 0,
+      transition: {
+        duration: 0.5, type: "spring", staggerChildren: 0.2
+      }
+    },
+    out: {
+      x: "100vw"
+    }
+  }
+
   return(
-    <div className="cartContainer">
+    <motion.div className="cartContainer">
       <motion.div
         className={styles.cart}
-        initial={{translateX: 1000}}
-        animate={{translateX: 0}}
-        exit={{translateX: 1000}}
-        transition={{duration: 0.5, type: "spring"}}
+        variants={cartVariants}
+        initial="start"
+        animate="animation"
+        exit="out"
       >
         <div className={styles.titleContainer}>
           <h2 className={styles.cartTitle}>Cart</h2>
@@ -51,6 +66,6 @@ export default function Cart({toggleDisplay, itemsArray, setItemsArray, pop}) {
           ))}
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
