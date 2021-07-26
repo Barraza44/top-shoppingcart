@@ -37,7 +37,7 @@ export default function Item({id, name, price, description, src, pop}) {
           layout="intrinsic"
         />
       </div>
-      <h3>{name}</h3>
+      <h3 className={styles.name}>{name}</h3>
       <div className={styles.toggleContainer}>
         <Image
           src="/images/remove.svg"
@@ -46,7 +46,7 @@ export default function Item({id, name, price, description, src, pop}) {
           layout={"intrinsic"}
           onClick={() => count - 1 === 0 ? pop(id) : setCount(count - 1)}
         />
-        <p>{count}</p>
+        <p className={styles.count}>{count}</p>
         <Image
           src="/images/add.svg"
           width={15}
@@ -55,7 +55,7 @@ export default function Item({id, name, price, description, src, pop}) {
           onClick={() => setCount(count + 1)}
         />
       </div>
-      <p>{price}</p>
+      <p className={styles.price}>${price}</p>
     </motion.div>
   )
 }
