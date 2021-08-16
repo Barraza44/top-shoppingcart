@@ -1,16 +1,11 @@
 import React, {useState, useEffect} from "react";
 import Image from "next/image";
 import styles from "../styles/item.module.css";
-import useLocalStorage from "../useLocalStorage";
-import Plant from "../Plant";
 import {motion, Variants} from "framer-motion";
 
-export default function Item({id, name, price, description, src, pop}) {
+export default function Item({id, name, price, description, src, pop, calculatePrice}) {
   const [count, setCount] = useState(1);
-  const [items, setItems] = useLocalStorage<Array<Plant>>("items", []);
-  useEffect(() => {
-    setItems(items);
-  }, []);
+
 
   const itemVariants: Variants = {
     start: {
@@ -26,6 +21,12 @@ export default function Item({id, name, price, description, src, pop}) {
       }
     }
   }
+
+  useEffect(() => {
+    calculatePrice(count, price);
+
+    return () => calculatePrice(count, -price)
+  }, [count])
 
   return (
     <motion.div className={styles.itemContainer} variants={itemVariants}>

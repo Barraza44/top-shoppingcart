@@ -8,6 +8,7 @@ import Plant from "../Plant";
 
 export default function Cart({toggleDisplay, itemsArray, setItemsArray, pop}) {
   const [items, setItems] = useLocalStorage<Array<Plant>>("items", []);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     setItems(items);
@@ -16,6 +17,10 @@ export default function Cart({toggleDisplay, itemsArray, setItemsArray, pop}) {
   useEffect(() => {
     return () => setItems(itemsArray);
   })
+
+  useEffect(() => {
+    if(total < 0) setTotal(0);
+  },[total]);
 
   const cartVariants = {
     start: {
@@ -30,6 +35,10 @@ export default function Cart({toggleDisplay, itemsArray, setItemsArray, pop}) {
     out: {
       x: "100vw"
     }
+  }
+
+  const calculatePrice = (qty, price) => {
+    setTotal(total => total + (qty * price));
   }
 
   return(
@@ -62,9 +71,11 @@ export default function Cart({toggleDisplay, itemsArray, setItemsArray, pop}) {
               price={item.price}
               description={item.description}
               pop={pop}
+              calculatePrice={calculatePrice}
             />
           ))}
         </div>
+        <p>Total: ${total.toFixed(2)}</p>
       </motion.div>
     </motion.div>
   );
