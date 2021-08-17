@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from '../styles/Home.module.css';
 import Header from "../components/Header";
 import {motion, AnimatePresence} from "framer-motion";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Cart from "../components/Cart";
 import useLocalStorage from "../useLocalStorage";
 
@@ -34,6 +34,7 @@ export default function Home() {
           href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap"
           rel="stylesheet"/>
         <link rel="stylesheet" href="https://use.typekit.net/luh8isz.css"/>
+        <meta name="description" content="Website created to showcase routing in React. Part of The Odin Project curriculums"/>
       </Head>
 
       <div className={styles.wrap}>
