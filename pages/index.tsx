@@ -35,6 +35,10 @@ export default function Home() {
           rel="stylesheet"/>
         <link rel="stylesheet" href="https://use.typekit.net/luh8isz.css"/>
         <meta name="description" content="Website created to showcase routing in React. Part of The Odin Project curriculums"/>
+        <meta property="og:title" content="The Dock" />
+        <meta property="og:description" content="Website created to showcase routing in React. Part of The Odin Project curriculums" />
+        <meta property="og:image" content="https://shopping-cart-pied.vercel.app/_next/image?url=%2Fimages%2Ffern.jpg&w=3840&q=69" />
+        <meta property="og:url" content="https://shopping-cart-pied.vercel.app/" />
       </Head>
 
       <div className={styles.wrap}>
