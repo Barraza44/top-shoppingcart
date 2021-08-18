@@ -9,8 +9,10 @@ import Plant from "../Plant";
 export default function Cart({toggleDisplay, itemsArray, setItemsArray, pop}) {
   const [items, setItems] = useLocalStorage<Array<Plant>>("items", []);
   const [total, setTotal] = useState(0);
+  const [innerWidth, setInnerWidth] = useState(0)
 
   useEffect(() => {
+    setInnerWidth(window.innerWidth);
     setItems(items);
   }, []);
 
@@ -22,18 +24,25 @@ export default function Cart({toggleDisplay, itemsArray, setItemsArray, pop}) {
     if(total < 0) setTotal(0);
   },[total]);
 
-  const cartVariants = {
+
+  const cartVariantsDesktop = {
     start: {
-      x: "100vw"
+      opacity: 0,
+      x: innerWidth < 768 ? 150 : 500,
+      scaleX: 0,
     },
     animation: {
+      opacity: 100,
+      scaleX: 1,
       x: 0,
       transition: {
         duration: 0.5, type: "spring", staggerChildren: 0.2
       }
     },
     out: {
-      x: "100vw"
+      opacity: 0,
+      scaleX: 0,
+      x: innerWidth < 768 ? 150 : 500
     }
   }
 
@@ -45,7 +54,7 @@ export default function Cart({toggleDisplay, itemsArray, setItemsArray, pop}) {
     <motion.div className="cartContainer">
       <motion.div
         className={styles.cart}
-        variants={cartVariants}
+        variants={cartVariantsDesktop}
         initial="start"
         animate="animation"
         exit="out"
