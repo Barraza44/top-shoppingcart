@@ -1,11 +1,10 @@
 @charset "UTF-8";
 
 .cart {
-    height: 100vh;
-    max-height: 100vh;
+    height: 100%;
     width: 70vw;
     overflow-y: scroll;
-    position: absolute;
+    position: fixed;
     z-index: 3;
     padding: 15px 15px 0 15px;
     background-color: #ffffff;

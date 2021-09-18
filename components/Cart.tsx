@@ -51,13 +51,14 @@ export default function Cart({toggleDisplay, itemsArray, setItemsArray, pop}) {
   }
 
   return(
-    <motion.div className="cartContainer">
+    <motion.div className="cartContainer" onClick={toggleDisplay}>
       <motion.div
         className={styles.cart}
         variants={cartVariantsDesktop}
         initial="start"
         animate="animation"
         exit="out"
+        onClick={(e) => e.stopPropagation()}
       >
         <div className={styles.titleContainer}>
           <h2 className={styles.cartTitle}>Cart</h2>

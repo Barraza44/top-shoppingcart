@@ -12,16 +12,16 @@
     "id": 2,
     "name": "Large fern pot",
     "price": 10.99,
-    "description": "aaa",
+    "description": "Curabitur imperdiet, tellus sit amet euismod imperdiet, velit urna varius tellus, ut mattis dui ipsum tincidunt sapien. Aliquam ullamcorper ultrices bibendum.",
     "src": "/images/pexels-monstera-6373479.jpg",
-    "potColor": "#E2ECF2",
+    "potColor": "#625b52",
     "size": "Large"
   },
   {
     "id": 3,
     "name": "Three succulent colored plant set",
     "price": 11.99,
-    "description": "aaa",
+    "description": "Proin porttitor dolor ut risus eleifend, ac luctus purus cursus. In interdum pellentesque mattis. Aenean cursus posuere pellentesque. Ut molestie tellus sed ultricies gravida. Pellentesque dui lorem, egestas ac dignissim a, tincidunt et turpis. Curabitur in velit rhoncus, gravida ante a, lobortis ligula. ",
     "src": "/images/pexels-scott-webb-311458.jpg",
     "potColor": "#E2ECF2",
     "size": "Small"
